@@ -1,0 +1,11 @@
+{
+    "users": [{
+        "id": 1,
+        "name": "Delbaldo Oliva",
+        "email": "doliva@mail.com.br"
+    }, {
+        "id": 2,
+        "name": "Lindolfa Cravo da Silva",
+        "email": "lcds@work.com"
+    }]
+}
