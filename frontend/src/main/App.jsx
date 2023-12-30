@@ -5,13 +5,13 @@ import React from 'react';
 
 import Logo from '../components/templates/Logo/Logo';
 import NavMenu from '../components/templates/Nav/NavMenu/NavMenu';
-import Main from '../components/templates/Main/Main';
+import Home from '../components/home/Home';
 import Footer from '../components/templates/Footer/Footer';
 
 export default props =>
     <div className='app'>
         <Logo />
         <NavMenu />
-        <Main icon={"home"} title={"Register"} subtitle={"Current data in the database."} />
+        <Home />
         <Footer />
     </div>
