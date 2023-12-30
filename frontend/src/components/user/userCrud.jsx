@@ -21,16 +21,23 @@ export default class UserCrud extends Component {
     state = { ...initialState };
 
     componentDidMount() {
-        axios(baseUrl).then(response => {
+        this.fetchUsers();
+    }
+
+    async fetchUsers() {
+        try {
+            const response = await axios.get(baseUrl);
             this.setState({ list: response.data });
-        });
+        } catch (error) {
+            console.error('Error fetching users:', error);
+        }
     }
 
     clear() {
         this.setState({ user: initialState.user });
     }
 
-    save() {
+    async save() {
         const user = this.state.user;
 
         if (!user.name || !user.email) {
@@ -40,11 +47,16 @@ export default class UserCrud extends Component {
 
         const method = (user.id) ? 'put' : 'post';
         const url = (user.id) ? `${baseUrl}/${user.id}` : baseUrl;
-        
-        axios[method](url, user).then(response => {
+
+        try {
+            console.log(url)
+            console.log("AA")
+            const response = await axios[method](url, user);
             const list = this.getUpdateList(response.data);
             this.setState({ user: initialState.user, list });
-        });
+        } catch (error) {
+            console.error('Error saving user:', error);
+        }
     }
 
     getUpdateList(user, add = true) {
@@ -63,11 +75,14 @@ export default class UserCrud extends Component {
         this.setState({ user });
     }
 
-    remove(user) {
-        axios.delete(`${baseUrl}/${user.id}`).then(response => {
+    async remove(user) {
+        try {
+            await axios.delete(`${baseUrl}/${user.id}`);
             const list = this.getUpdateList(user, false);
             this.setState({ list });
-        })
+        } catch (error) {
+            console.error('Error deleting user:', error);
+        }
     }
 
     renderForm() {
