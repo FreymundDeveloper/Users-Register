@@ -5,7 +5,7 @@ import Main from '../templates/Main/Main';
 const headerProps = {
     icon: 'users',
     title: 'Users',
-    subtitle: 'Users Register: Crate, Read, Update and Delete'
+    subtitle: 'Users Register: Create, Read, Update and Delete.'
 }
 
 const baseUrl = 'http://localhost:3001/users';
@@ -39,11 +39,52 @@ export default class UserCrud extends Component {
         return list;
     }
 
+    updateField(event) {
+        const user = { ...this.state.user };
+        user[event.target.name] = event.target.value;
+        this.setState({ user });
+    }
+
+    renderForm() {
+        return (
+            <div className="form">
+                <div className="row">
+                    <div className="col-12 col-md-6">
+                        <div className="form-group">
+                            <label>Name</label>
+                            <input type="text" className="form-control" name="name" 
+                                value={this.state.user.name} onChange={event => this.updateField(event)} 
+                                placeholder="Digit a name..."/>
+                        </div>
+                    </div>
+
+                    <div className="col-12 col-md-6">
+                        <div className="form-group">
+                            <label>Email</label>
+                            <input type="text" className="form-control" name="email"
+                                value={this.state.user.email}
+                                onChange={event => this.updateField(event)}
+                                placeholder="Digit a email..." />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-12 d-flex justify-content-end">
+                        <button className="btn btn-primary" onClick={event => this.save(event)}>Save</button>
+
+                        <button className="btn btn-secondary ml-2" onClick={event => this.save(event)}>Cancel</button>
+
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     render() {
         return (
             <Main {...headerProps}>
-                User
+                {this.renderForm()}
             </Main>
         );
     }
