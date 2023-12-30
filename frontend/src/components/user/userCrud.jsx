@@ -8,7 +8,7 @@ const headerProps = {
     icon: 'users',
     title: 'Users',
     subtitle: 'Users Register: Create, Read, Update and Delete.'
-}
+};
 
 const baseUrl = 'http://localhost:3001/users';
 const initialState = {

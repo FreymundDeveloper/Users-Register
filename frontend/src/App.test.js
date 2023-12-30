@@ -28,7 +28,7 @@ test('Renders FormRegister component', () => {
         id: 1,
         name: "Delbaldo Oliva",
         email: "doliva@mail.com.br"
-    }
+    };
     render(<FormRegister user={users} />);
 });
 
@@ -37,6 +37,6 @@ test('Renders TableUsers component', () => {
         id: 1,
         name: "Delbaldo Oliva",
         email: "doliva@mail.com.br"
-    }]
+    }];
     render(<TableUsers list={list} />);
 });
