@@ -1,4 +1,4 @@
-a {
+.hover {
     display: block;
     text-decoration: none;
     color: #fff;
@@ -6,6 +6,6 @@ a {
     padding: 15px;
 }
 
-a:hover {
+.hover:hover {
     background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100%);
 }
