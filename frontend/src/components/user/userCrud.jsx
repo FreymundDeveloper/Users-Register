@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import Main from '../templates/Main/Main';
+import FormRegister from "../templates/Form/FormRegister";
 
 const headerProps = {
     icon: 'users',
@@ -47,37 +48,8 @@ export default class UserCrud extends Component {
 
     renderForm() {
         return (
-            <div className="form">
-                <div className="row">
-                    <div className="col-12 col-md-6">
-                        <div className="form-group">
-                            <label>Name</label>
-                            <input type="text" className="form-control" name="name" 
-                                value={this.state.user.name} onChange={event => this.updateField(event)} 
-                                placeholder="Digit a name..."/>
-                        </div>
-                    </div>
-
-                    <div className="col-12 col-md-6">
-                        <div className="form-group">
-                            <label>Email</label>
-                            <input type="text" className="form-control" name="email"
-                                value={this.state.user.email}
-                                onChange={event => this.updateField(event)}
-                                placeholder="Digit a email..." />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="row">
-                    <div className="col-12 d-flex justify-content-end">
-                        <button className="btn btn-primary" onClick={event => this.save(event)}>Save</button>
-
-                        <button className="btn btn-secondary ml-2" onClick={event => this.save(event)}>Cancel</button>
-
-                    </div>
-                </div>
-            </div>
+            <FormRegister user={this.state.user} updateField={(event) => this.updateField(event)}
+                 save={() => this.save()} clear={() => this.clear()} />
         );
     }
 
