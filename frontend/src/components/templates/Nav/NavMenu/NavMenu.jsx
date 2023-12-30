@@ -7,6 +7,6 @@ export default props =>
     <aside className='menu-area'>
         <nav className='menu'>
             <NavHome icon={"home"} title={"Start"} route={"/"} /> 
-            <NavHome icon={"users"} title={"Users"} route={"/users"}  />
+            <NavHome icon={"users"} title={"Users"} route={"/users"} />
         </nav>
     </aside>
