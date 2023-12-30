@@ -10,7 +10,7 @@ Some technologies used:
 * JavaScript;
 * Jest;
 * PostgreSQL;
-* Boostrap;
+* Bootstrap;
 * Node;
 * Express.
 
