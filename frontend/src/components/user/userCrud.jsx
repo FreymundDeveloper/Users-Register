@@ -32,6 +32,12 @@ export default class UserCrud extends Component {
 
     save() {
         const user = this.state.user;
+
+        if (!user.name || !user.email) {
+            alert("Name and email are required!");
+            return;
+        }
+
         const method = (user.id) ? 'put' : 'post';
         const url = (user.id) ? `${baseUrl}/${user.id}` : baseUrl;
         
