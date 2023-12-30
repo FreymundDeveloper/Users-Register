@@ -49,8 +49,6 @@ export default class UserCrud extends Component {
         const url = (user.id) ? `${baseUrl}/${user.id}` : baseUrl;
 
         try {
-            console.log(url)
-            console.log("AA")
             const response = await axios[method](url, user);
             const list = this.getUpdateList(response.data);
             this.setState({ user: initialState.user, list });
