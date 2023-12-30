@@ -10,7 +10,17 @@ export default props => {
                     <td>{user.id}</td>
                     <td>{user.name}</td>
                     <td>{user.email}</td>
-                    <td>
+                    <td className="d-block d-sm-none mb-2">
+                        <button className="btn btn-warning" onClick={() => load(user)}>
+                            <i className="fa fa-pencil"></i>
+                        </button>
+                    </td>
+                    <td className="d-block d-sm-none">
+                        <button className="btn btn-danger" onClick={() => remove(user)}>
+                            <i className="fa fa-trash"></i>
+                        </button>
+                    </td>
+                    <td className="d-none d-sm-table-cell">
                         <button className="btn btn-warning" onClick={() => load(user)}>
                             <i className="fa fa-pencil"></i>
                         </button>
