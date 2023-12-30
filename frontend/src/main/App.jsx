@@ -4,14 +4,14 @@ import './App.css';
 import React from 'react';
 
 import Logo from '../components/templates/Logo/Logo';
-import Nav from '../components/templates/Nav/Nav';
+import NavMenu from '../components/templates/Nav/NavMenu/NavMenu';
 import Main from '../components/templates/Main/Main';
 import Footer from '../components/templates/Footer/Footer';
 
 export default props =>
     <div className='app'>
         <Logo />
-        <Nav />
+        <NavMenu />
         <Main icon={"home"} title={"Register"} subtitle={"Current data in the database."} />
         <Footer />
     </div>
