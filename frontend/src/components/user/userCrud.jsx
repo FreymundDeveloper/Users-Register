@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Main from '../templates/Main/Main';
 import FormRegister from "../templates/Form/FormRegister";
+import TableUsers from "../templates/Table/TableUsers";
 
 const headerProps = {
     icon: 'users',
@@ -52,13 +53,6 @@ export default class UserCrud extends Component {
         this.setState({ user });
     }
 
-    renderForm() {
-        return (
-            <FormRegister user={this.state.user} updateField={(event) => this.updateField(event)}
-                 save={() => this.save()} clear={() => this.clear()} />
-        );
-    }
-
     load(user) {
         this.setState({ user });
     }
@@ -70,49 +64,19 @@ export default class UserCrud extends Component {
         })
     }
 
-    renderTable() {
+    renderForm() {
         return (
-            <table className="table mt-4">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.renderRows()}
-                </tbody>
-            </table>
+            <FormRegister user={this.state.user} updateField={(event) => this.updateField(event)}
+                 save={() => this.save()} clear={() => this.clear()} />
         );
-    }
-
-    renderRows() {
-        return this.state.list.map(user => {
-            return (
-                <tr key={user.id}>
-                    <td>{user.id}</td>
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
-                    <td>
-                        <button className="btn btn-warning" onClick={() => this.load(user)}>
-                            <i className="fa fa-pencil"></i>
-                        </button>
-                        <button className="btn btn-danger ml-2" onClick={() => this.remove(user)}>
-                            <i className="fa fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            );
-        })
     }
 
     render() {
         return (
             <Main {...headerProps}>
                 {this.renderForm()}
-                {this.renderTable()}
+                <TableUsers list={this.state.list} load={(user) => this.load(user)}
+                     remove={(user) => this.remove(user)} />
             </Main>
         );
     }
