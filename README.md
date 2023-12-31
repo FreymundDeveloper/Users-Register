@@ -29,7 +29,7 @@ $ npm install
 $ npm run start
 
 # Running without a database
-npm run start-local
+$ npm run start-local
 
 # Running Test
 # Go to "cd ./frontend". Then run:
